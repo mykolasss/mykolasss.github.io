@@ -69,28 +69,6 @@
             transform: scale(1.05); /* Simple zoom animation on hover */
         }
 
-        #gallery2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        #gallery2 img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
-
-        #gallery2 img:hover {
-            transform: scale(1.05); /* Simple zoom animation on hover */
-        }
-
         /* Lightbox (Photo Viewer) */
         .lightbox {
             display: none; /* Hidden by default */
@@ -140,10 +118,24 @@
         }
 
         .full-width-image {
-            width: 100%;
+            width: 100%; /* Make the image as wide as the container */
             height: auto;
-            border-radius: 0; /* Remove border radius for full-width effect */
-            margin-bottom: 20px; /* Add some space below the full-width image */
+            border-radius: 10px; /* Apply the same border radius as other images */
+            margin-bottom: 20px;
+            transition: transform 0.3s ease; /* Add the zoom effect transition */
+            /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add the box shadow like other images */
+            cursor: pointer; /* Make it consistent with other images */
+        }
+
+        .full-width-image:hover {
+            transform: scale(1.05); /* Add the zoom effect on hover */
+        }
+
+        .gallery-wrapper {
+            max-width: 1200px; /* Same as .gallery */
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
     </style>
@@ -159,8 +151,8 @@
             </p>
         </div>
     </div>
-    <div class="gallery2"></div>
-        <a href="#lightbox1"><img class="full-width-image" id="gallery2" src="images/image1.jpg" alt="Image 1"></a>
+    <div class="gallery-wrapper"></div>
+        <a href="#lightbox1"><img class="full-width-image" src="images/image1.jpg" alt="Image 1"></a>
     </div>
 
     <div class="gallery">
