@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Athmosffera</title>
     <style>
         body {
             background-color: #ceccb5;
@@ -69,6 +69,28 @@
             transform: scale(1.05); /* Simple zoom animation on hover */
         }
 
+        #gallery2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        #gallery2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        #gallery2 img:hover {
+            transform: scale(1.05); /* Simple zoom animation on hover */
+        }
+
         /* Lightbox (Photo Viewer) */
         .lightbox {
             display: none; /* Hidden by default */
@@ -123,6 +145,7 @@
             border-radius: 0; /* Remove border radius for full-width effect */
             margin-bottom: 20px; /* Add some space below the full-width image */
         }
+
     </style>
 </head>
 <body>
@@ -136,8 +159,9 @@
             </p>
         </div>
     </div>
-
-    <a href="#lightbox1"><img class="full-width-image" src="images/image1.jpg" alt="Image 1"></a>
+    <div class="gallery2"></div>
+        <a href="#lightbox1"><img class="full-width-image" id="gallery2" src="images/image1.jpg" alt="Image 1"></a>
+    </div>
 
     <div class="gallery">
         <a href="#lightbox2"><img src="images/image2.jpg" alt="Image 2"></a>
@@ -199,3 +223,13 @@
 
 </body>
 </html>
+
+<script>
+    document.querySelectorAll('.lightbox').forEach(lightbox => {
+        lightbox.addEventListener('click', function(event) {
+            if (event.target === this) {
+                window.location.hash = ''; // Close lightbox by clearing the hash
+            }
+        });
+    });
+</script>
